@@ -1,0 +1,66 @@
+/* .card {
+    border: none;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .card {
+      border: 1px solid #dee2e6;
+      border-radius: 0.25rem;
+    }
+  }
+   */
+
+
+   /* Estilos para la fila */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px; /* Para crear un espacio entre las columnas */
+  }
+  
+  /* Estilos para las columnas */
+  .col-12 {
+    flex: 0 0 100%; /* Las columnas ocuparán todo el ancho en pantallas móviles */
+    padding: 0 10px; /* Para crear un espacio entre las columnas */
+  }
+  
+  @media (min-width: 576px) {
+    /* Estilos para pantallas de tamaño medio */
+    .col-md-6 {
+      flex: 0 0 50%; /* Las columnas ocuparán la mitad del ancho en pantallas medianas */
+    }
+  }
+  
+  @media (min-width: 992px) {
+    /* Estilos para pantallas de tamaño grande */
+    .col-lg-3 {
+      flex: 0 0 25%; /* Las columnas ocuparán una cuarta parte del ancho en pantallas grandes */
+    }
+  }
+  
+  /* Estilos para las tarjetas */
+  /* .card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover; /* Para que la imagen se ajuste al tamaño de la tarjeta */
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+   */
