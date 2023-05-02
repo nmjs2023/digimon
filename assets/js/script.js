@@ -1,5 +1,5 @@
-console.clear;
-console.log('ejecutando');
+/* console.clear;
+console.log('ejecutando'); */
 
 /* var elemento = document.getElementById("hola");
 if (elemento==null) {
@@ -10,8 +10,8 @@ if (elemento==null) {
 console.log(elemento); 
 */
 
-
-var elemento = document.getElementById("tituloPrincipal");
+ 
+/* var elemento = document.getElementById("tituloPrincipal");
 if (elemento==null) {
     console.log('el elemento con id tituloPrincipal no existe');
 } else {
@@ -25,7 +25,7 @@ elemento.textContent = "<strong>Esto lo cambié desde JS</strong>"
 
 console.log(elemento.innerHTML);
 elemento.innerHTML = "<strong>Esto lo cambié desde JS</strong>";
-
+ */
 
 /* document.getElementById('tituloPrincipal').innerHTML = 'Hola'; */
 /* 
