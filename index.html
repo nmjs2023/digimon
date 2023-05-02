@@ -15,7 +15,8 @@
 
 <body data-bs-theme="dark">
     <header id="header">
-        <!-- ============================== MENU ====================================== -->
+
+        <!-- ======== INICIO NAV ========-->
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark text-white">
             <div class="container-fluid">
                 <button onclick="switchTheme()" class="btn rounded-fill"><i id="iconito"
@@ -45,65 +46,37 @@
                 </div>
 
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input id="txtNombre" class="form-control me-2" type="search" placeholder="Nombre de digimon"
+                        aria-label="Search" required>
+                    <button class="btn btn-outline-success" type="button" id="btnBuscar">Buscar</button>
                 </form>
 
             </div>
         </nav>
-
+        <!-- ======== FIN NAV ========-->
     </header>
 
     <main>
         <div class="container-fluid">
-            <section id="" seccion01>
+            <section id="seccion01">
                 <h2>sección</h2>
             </section>
         </div>
-        <div>
-            <!-- tarjetas 3 tarjetas por fila, si el dispositivo es celular sólo se visualizará una única tarjeta por fila-->
-            <!-- <div class="row">
-                <div class="col-sm-12 col-md-4 mb-3">
-                    <div class="card">
-                        <img src="assets/img/ejemplo_digimon.jfif" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Tarjeta 1</h5>
-                            <p class="card-text">Contenido de la tarjeta 1</p>
-                            <a href="#" class="btn btn-primary">Ver detalle</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 mb-3">
-                    <div class="card">
-                        <img src="assets/img/ejemplo_digimon.jfif" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Tarjeta 1</h5>
-                            <p class="card-text">Contenido de la tarjeta 1</p>
-                            <a href="#" class="btn btn-primary">Ver detalle</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 mb-3">
-                    <div class="card">
-                        <img src="assets/img/ejemplo_digimon.jfif" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Tarjeta 1</h5>
-                            <p class="card-text">Contenido de la tarjeta 1</p>
-                            <a href="#" class="btn btn-primary">Ver detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
- -->
 
+        <div id="tarjetaDigimon">
+            <!-- 
+        <div>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card ">
-                        <img src="assets/img/ejemplo_digimon.jfif" class="card-img-top img-fluid img-thumbnail"  alt="...">
+                    <div class="card">
+                        <img src="assets/img/ejemplo_digimon.jfif" class="card-img-top img-fluid img-thumbnail"
+                            alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Título de la tarjeta 1</h5>
                             <p class="card-text">Descripción de la tarjeta 1.</p>
                         </div>
+                        <button type="button" id="btnDetalle" class="btn btn-primary btn-outline-success">ver más
+                            ...</button>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
@@ -113,6 +86,7 @@
                             <h5 class="card-title">Título de la tarjeta 2</h5>
                             <p class="card-text">Descripción de la tarjeta 2.</p>
                         </div>
+                        <button type="button" id="btnConsultar" class="btn btn-primary">Consultar</button>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
@@ -146,20 +120,21 @@
 
 
         </div>
+ -->
+        </div>
+
 
 
     </main>
 
-    <footer id="Pie">
-        <div class="container-fluid">
-            <p>Copyright &copy; 2021 - Mi Página Web</p>
+    <footer id="Pie"><!-- class="fixed-bottom" -->
+        <div class="container-fluid ">
+            <p>Copyright &copy; 2023 - JS FullStack Trainee</p>
         </div>
 
     </footer>
 
-    <!-- 
-    ===================== popper y js de bootstrap ===================== 
-    -->
+    <!-- ===================== popper y js de bootstrap ===================== -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
         crossorigin="anonymous"></script>
@@ -167,9 +142,10 @@
         integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
         crossorigin="anonymous"></script>
 
-    <!-- 
-    ===================== Scripts del sitio ===================== 
-    -->
+    <!-- ===================== jQuery ===================== -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <!-- ===================== Scripts personalizados =====================  -->
     <script src="assets/js/scriptTemaDarkLigth.js"></script>
     <script src="assets/js/scriptDigimon.js"></script>
 
