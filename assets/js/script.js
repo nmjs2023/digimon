@@ -40,3 +40,4 @@ var cliente = {
 }
 
 console.log(cliente.nombre) */
+ 

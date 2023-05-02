@@ -1,16 +1,17 @@
 console.clear;
 
 
-/* consumeAPI("https://digimon-api.vercel.app/api/digimon"); */
+
 consumeAPI("https://digimon-api.vercel.app/api/digimon");
 
-function borrarTarjetas() {
+function eliminaNodos(pTag) {
     /*
         elimina todas las tarjetas de digimones existentes en la pagina
         Es decir, se eliminan todos los hijos del div con id ="tarjetaDigimon
     */
-    console.log("dentro de eliminartarjetas")
-    var elemento = document.getElementById("tarjetaDigimon");
+        /* "tarjetaDigimon" */
+    console.log("dentro de eliminaNodos -->" + pTag)
+    var elemento = document.getElementById(pTag);
     while (elemento.firstChild) {
         elemento.removeChild(elemento.firstChild);
     }
@@ -48,20 +49,16 @@ function consumeAPI(urlBase) {
         url: urlBase,
         dataType: "json",
         success: function (response) {
+            /* 
             console.log("============ EL RESPONSE ============")
             console.log(response);
             console.log("============ FIN RESPONSE ============")
-            /* if (!esModal) {
-                muestraTarjetas(response);
-            } else {
-                console.log("se pinta y abre el modal");
-            }
-            return (response); */
-            console.log("se pinta tarjeta");
+            console.log("se pinta tarjeta"); 
+            */
             var tarjetaDigimon = document.querySelector('#tarjetaDigimon');
             //console.log(tarjetaDigimon);
 
-            borrarTarjetas();  /* se eliminan todas la tarjetas de digimones previamente existentes en la pagina */
+            eliminaNodos("tarjetaDigimon");  /* se eliminan todas la tarjetas de digimones previamente existentes en la pagina */
 
             /* var response = consumeAPI(urlBase); */
 
@@ -77,10 +74,19 @@ function consumeAPI(urlBase) {
                 txtInnerHtml += `<h5 class="card-title">${objDigimon.name}</h5>`;
                 txtInnerHtml += `<p class="card-text">Nivel: ${objDigimon.level}</p>`;
                 txtInnerHtml += `</div>`;
-                txtInnerHtml += `<button type="button" id="${objDigimon.name}" class="btn btn-primary">Consultar</button>`;
+                /* txtInnerHtml += `<button type="button" id="${objDigimon.name}" class="btn btn-primary">Consultar</button>`; */
+                txtInnerHtml += `<button type="button" id="${objDigimon.name}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">`
+                txtInnerHtml += `Ver detalle de ${objDigimon.name}`
+                txtInnerHtml += `</button>`
                 txtInnerHtml += "</div>"
                 txtInnerHtml += "</div>"
                 //console.log(txtInnerHtml);
+
+
+
+
+
+
 
             });
             txtInnerHtml += "</div>"
@@ -157,6 +163,7 @@ botones.forEach(function (boton) {
 function mostrarModal(nombreDigimon) {
     // Lógica para mostrar el modal con la información del digimon correspondiente
     // ...
+    console.clear();
     console.log("llamado de la api dentro del modal ");
     console.log(nombreDigimon);
     let urlBase = "https://digimon-api.vercel.app/api/digimon/name/" + nombreDigimon;
@@ -177,35 +184,84 @@ function mostrarModal(nombreDigimon) {
             }
             return (response); */
             console.log("se pinta modal");
-            var tarjetaDigimon = document.querySelector('#tarjetaDigimon');
-            //console.log(tarjetaDigimon);
+            var tarjetaDigimonModal = document.querySelector('#staticBackdrop');
+            console.log(tarjetaDigimonModal);
 
-            
+            eliminaNodos("staticBackdrop");  /* se eliminan los nodos dependientes de staticBackdrop */
+
             /* var response = consumeAPI(urlBase); */
 
             let txtInnerHtml = "";
-            txtInnerHtml += `<div class="row">`;
+            
             response.forEach(function (objDigimon) {
-                //console.log(objDigimon);
+                console.log("------INICIO objDigimon------");
+                console.log(objDigimon);
+                console.log("------FIN objDigimon------");
 
-                txtInnerHtml += `<div class="col-12 col-md-6 col-lg-3">`;
-                txtInnerHtml += `<div class="card">`;
-                txtInnerHtml += `<img src="${objDigimon.img}" class="card-img-top img-fluid img-thumbnail" alt="imagen de ${objDigimon.name}">`;
-                txtInnerHtml += `<div class="card-body">`;
-                txtInnerHtml += `<h5 class="card-title">${objDigimon.name}</h5>`;
-                txtInnerHtml += `<p class="card-text">Nivel: ${objDigimon.level}</p>`;
+
+                /* 
+                // Crea un elemento "div" para mostrar la información del Digimon
+                const divModal = document.createElement("div");
+
+                // Agrega el nombre del Digimon al elemento "div"
+                const nombreDigimon = document.createElement("h2");
+                nombreDigimon.textContent = objDigimon.nombre;
+                divModal.appendChild(nombreDigimon);
+
+                // Agrega la imagen del Digimon al elemento "div"
+                const imagenDigimon = document.createElement("img");
+                imagenDigimon.src = objDigimon.imagen;
+                divModal.appendChild(imagenDigimon);
+
+                // Agrega la descripción del Digimon al elemento "div"
+                const descripcionDigimon = document.createElement("p");
+                descripcionDigimon.textContent = objDigimon.descripcion;
+                divModal.appendChild(descripcionDigimon);
+
+                // Agrega el elemento "div" al DOM para mostrarlo en la ventana modal
+                const modal = document.getElementById("miModal");
+                modal.appendChild(divModal);
+
+                // Muestra la ventana modal
+                modal.style.display = "block"; 
+                */
+                txtInnerHtml += `<div class="modal-dialog">`;
+                txtInnerHtml += `   <div class="modal-content">`;
+                txtInnerHtml += `       <div class="modal-header">`;
+                txtInnerHtml += `           <h1 class="modal-title fs-5" id="staticBackdropLabel">Detalle de digimon seleccionado</h1>`;
+                txtInnerHtml += `           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>`;
+                txtInnerHtml += `       </div>`;
+                txtInnerHtml += `       <div class="modal-body">`;
+                txtInnerHtml += `           <div class="row">`;
+                txtInnerHtml += `               <div class="col">`;
+                txtInnerHtml += `                   <img src="${objDigimon.img}" class="card-img-top img-fluid img-thumbnail" alt="imagen de ${objDigimon.name}">`;
+                txtInnerHtml += `               </div>`;
+                txtInnerHtml += `               <div class="col">`;
+                
+                txtInnerHtml += `                   <h3 class="card-text">Nombre: ${objDigimon.name}</h3>`;
+                txtInnerHtml += `                   <h3 class="card-text">Nivel: ${objDigimon.level}</h3>`;
+                txtInnerHtml += `               </div>`;
+
+                txtInnerHtml += `           </div>`;
+                txtInnerHtml += `       </div>`;
+                txtInnerHtml += `       <div class="modal-footer">`;
+                txtInnerHtml += `           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>`;
+                txtInnerHtml += `       </div>`;
+                txtInnerHtml += `   </div>`;
                 txtInnerHtml += `</div>`;
-                txtInnerHtml += `<button type="button" id="${objDigimon.name}" class="btn btn-primary">Consultar</button>`;
-                txtInnerHtml += "</div>"
-                txtInnerHtml += "</div>"
-                //console.log(txtInnerHtml);
+                
+                    
+                        
 
+                    
+                
+            
             });
-            txtInnerHtml += "</div>"
-            tarjetaDigimon.innerHTML = txtInnerHtml;
+            /* txtInnerHtml += "</div>"
+            tarjetaDigimon.innerHTML = txtInnerHtml; */
+            tarjetaDigimonModal.innerHTML = txtInnerHtml; 
 
-            
-            
+
         },
 
         error: function (error) {
@@ -227,3 +283,5 @@ function mostrarModal(nombreDigimon) {
         }
     });
 };
+
+
