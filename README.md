@@ -61,5 +61,5 @@ Ejemplo:
    - Si la API devuelve error 400, entonces se emite alerta de que el nombre del digimon seleccionado no existe. 
    - Si es otro código de error, entonces se emite el detalle del mensaje de error por consola y la pagina queda tal cual como está actualmente (no se eliminan tarjetas previas y no se pinta ninguna nueva tarjeta)  
 
-`#0969DA`(acabo de aprender algo de como construir este readme, nunca lo había realizado)
+**(acabo de aprender algo de como construir este readme, nunca lo había realizado)**
 
